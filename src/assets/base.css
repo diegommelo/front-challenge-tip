@@ -3,6 +3,7 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-cyan: hsl(172, 67%, 45%);
+  --vt-c-light-cyan: #9fe8df;
   --vt-c-dark-cyan: hsl(183, 100%, 15%);
   --vt-c-dark-gray-cyan: hsl(186, 14%, 43%);
   --vt-c-dark-gray-cyan-2: hsl(184, 14%, 56%);
@@ -43,6 +44,7 @@
   --primary: var(--vt-c-cyan);
   --primary-dark: var(--vt-c-dark-cyan);
   --primary-light: var(--vt-c-light-gray-cyan);
+  --primary-light-2: var(--vt-c-light-cyan);
 
   --input-background: var(--vt-c-light-gray-cyan);
 }

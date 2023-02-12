@@ -1,6 +1,6 @@
 <template>
     <section class="c-TipConfig">
-        <BaseInput label="Bill" @input="(e) => setBill(e)">
+        <BaseInput label="Bill" v-model="tipsStore.bill">
             <template #icon>
                 <IconDollar />
             </template>
@@ -9,12 +9,12 @@
             <span>Select Tip %</span>
             <div class="c-TipConfig-TipPercentages">
                 <template v-for="tip in defaultTips" :key="tip">
-                    <button @click="setTip(tip)">{{ tip }}%</button>
+                    <button @click="setTip(tip)" :class="{ 'selected': selectedTip(tip) }">{{ tip }}%</button>
                 </template>
-                <BaseInput placeholder="Custom" />
+                <BaseInput placeholder="Custom" v-model="tipsStore.customTip" @click="setTip(0)"/>
             </div>
         </div>
-        <BaseInput label="Number of People" @input="(e) => setPeople(e)">
+        <BaseInput label="Number of People" v-model="tipsStore.people">
             <template #icon>
                 <IconPerson />
             </template>
@@ -31,14 +31,13 @@ import IconPerson from './icons/IconPerson.vue'
 
 const tipsStore = useTipsStore()
 const defaultTips = ref(tipsStore.defaultTips)
+
 const setTip = (tip) => {
     tipsStore.setTip(tip)
 }
-const setBill = (bill) => {
-    tipsStore.setBill(Number(bill))
-}
-const setPeople = (people) => {
-    tipsStore.setPeople(Number(people))
+
+const selectedTip = (tip) => {
+    return tip == tipsStore.tip
 }
 
 </script>
@@ -80,8 +79,8 @@ const setPeople = (people) => {
     font-weight: bold;
 
     &:hover {
-        background-color: var(--primary);
-        border: 1px solid var(--primary);
+        background-color: var(--primary-light-2);
+        border: 1px solid var(--primary-light-2);
         color: var(--primary-dark);
         cursor: pointer;
     }

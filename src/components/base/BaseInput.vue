@@ -1,7 +1,7 @@
 <template>
     <div class="c-TipConfig-Input">
         <label v-if="label">{{ label }}</label>
-        <input type="text" :placeholder="placeholder" @input="(e) => $emit('input', e.target.value)">
+        <input :type="type" :placeholder="placeholder" v-model="value" >
         <i>
             <slot name="icon"></slot>
         </i>
@@ -9,17 +9,38 @@
 </template>
 
 <script setup>
-defineProps({
+
+import { computed } from 'vue'
+
+const props = defineProps({
     label: {
         type: String,
     },
     placeholder: {
         type: String,
         default: ""
+    },
+    modelValue: {
+        type: [String, Number],
+        default: ""
+    },
+    type: {
+        type: String,
+        default: "text"
+    },
+})
+
+const emits = defineEmits(['update:modelValue'])
+
+const value = computed({
+    get() {
+        return props.modelValue
+    },
+    set(val) {
+        emits('update:modelValue', val)
     }
 })
 
-defineEmits(['input'])
 </script>
 
 <style lang="scss" scoped>

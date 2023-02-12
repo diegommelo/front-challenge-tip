@@ -17,12 +17,20 @@
                     <span>${{ total.toFixed(2) }}</span>
                 </div>
             </section>
-            <button class="c-TipReport-Reset">RESET</button>
+            <button class="c-TipReport-Reset" @click="reset">RESET</button>
         </section>
     </section>
 </template>
 
 <script setup>
+import { useTipsStore } from '../stores/tips';
+
+const tipsStore = useTipsStore()
+
+const reset = () => {
+    tipsStore.reset()
+}
+
 defineProps({
     tipAmount: {
         type: Number,
@@ -80,6 +88,12 @@ defineProps({
     height: 2.8rem;
     font-family: 'Space Mono', monospace;
     font-size: 1.2rem;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--primary-light-2);
+        color: var(--primary-dark);
+        border: 1px solid var(--primary-light-2);
+    }
 }
 
 .c-TipReport-Detail {
