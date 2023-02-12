@@ -35,6 +35,9 @@
 }
 
 @media screen and (min-width: 768px) {
+    .c-TipReport {
+        padding: 1.5rem;
+    }
     .c-TipReport-Content{
         height: 100%;
         justify-content: space-between;
