@@ -44,4 +44,10 @@
     display: flex;
     flex-direction: column;
 }
+.c-TipConfig button {
+    background-color: var(--primary-dark);
+    color: #fff;
+    border: 1px solid var(--primary-dark);
+    border-radius: 5%;
+}
 </style>
