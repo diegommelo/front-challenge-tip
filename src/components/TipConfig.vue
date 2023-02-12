@@ -1,6 +1,6 @@
 <template>
     <section class="c-TipConfig">
-        <BaseInput label="Bill" @input="(e) => $emit('set-bill', e)">
+        <BaseInput label="Bill" @input="(e) => setBill(e)">
             <template #icon>
                 <IconDollar />
             </template>
@@ -8,15 +8,13 @@
         <div>
             <span>Select Tip %</span>
             <div class="c-TipConfig-TipPercentages">
-                <button>5%</button>
-                <button>10%</button>
-                <button>15%</button>
-                <button>25%</button>
-                <button>50%</button>
+                <template v-for="tip in defaultTips" :key="tip">
+                    <button @click="setTip(tip)">{{ tip }}%</button>
+                </template>
                 <BaseInput placeholder="Custom" />
             </div>
         </div>
-        <BaseInput label="Number of People">
+        <BaseInput label="Number of People" @input="(e) => setPeople(e)">
             <template #icon>
                 <IconPerson />
             </template>
@@ -25,11 +23,24 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useTipsStore } from '../stores/tips';
 import BaseInput from './base/BaseInput.vue'
 import IconDollar from './icons/IconDollar.vue'
 import IconPerson from './icons/IconPerson.vue'
 
-defineEmits(['set-bill'])
+const tipsStore = useTipsStore()
+const defaultTips = ref(tipsStore.defaultTips)
+const setTip = (tip) => {
+    tipsStore.setTip(tip)
+}
+const setBill = (bill) => {
+    tipsStore.setBill(Number(bill))
+}
+const setPeople = (people) => {
+    tipsStore.setPeople(Number(people))
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -52,6 +63,7 @@ defineEmits(['set-bill'])
     .c-TipConfig {
         padding: 1.3rem 1rem 1.3rem 1.5rem;
     }
+
     .c-TipConfig-TipPercentages {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -66,5 +78,18 @@ defineEmits(['set-bill'])
     font-family: 'Space Mono', monospace;
     font-size: 24px;
     font-weight: bold;
+
+    &:hover {
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
+        color: var(--primary-dark);
+        cursor: pointer;
+    }
+
+    &.selected {
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
+        color: var(--primary-dark);
+    }
 }
 </style>

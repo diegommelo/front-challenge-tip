@@ -1,27 +1,12 @@
 <script setup>
-import { ref } from 'vue'
 import TipConfig from './components/TipConfig.vue';
 import TipReport from './components/TipReport.vue';
-
-defineEmits(['setBill'])
-
-const bill = ref(0);
-const tip = ref(0);
-const people = ref(0);
-const tipAmount = ref(0);
-const total = ref(0);
-const DEFAULT_TIPS = [5, 10, 15, 25, 50];
-
-function setBill(value) {
-  bill.value = Number(value)
-}
-
 
 </script>
 
 <template>
   <main>
-    <TipConfig @set-bill="setBill" />
+    <TipConfig />
     <TipReport />
   </main>
 </template>
