@@ -1,11 +1,11 @@
 <template>
     <section class="c-TipConfig">
-        <BaseInput label="Bill">
+        <BaseInput label="Bill" @input="(e) => $emit('set-bill', e)">
             <template #icon>
                 <IconDollar />
             </template>
         </BaseInput>
-        <div class="">
+        <div>
             <span>Select Tip %</span>
             <div class="c-TipConfig-TipPercentages">
                 <button>5%</button>
@@ -28,6 +28,8 @@
 import BaseInput from './base/BaseInput.vue'
 import IconDollar from './icons/IconDollar.vue'
 import IconPerson from './icons/IconPerson.vue'
+
+defineEmits(['set-bill'])
 </script>
 
 <style lang="scss" scoped>

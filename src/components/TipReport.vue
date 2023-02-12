@@ -7,14 +7,14 @@
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>$4.27</span>
+                    <span>${{ tipAmount.toFixed(2) }}</span>
                 </div>
                 <div class="c-TipReport-Detail">
                     <span>Total</span>
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>$32.79</span>
+                    <span>${{ total.toFixed(2) }}</span>
                 </div>
             </section>
             <button class="c-TipReport-Reset">RESET</button>
@@ -23,7 +23,16 @@
 </template>
 
 <script setup>
-
+defineProps({
+    tipAmount: {
+        type: Number,
+        default: 0
+    },
+    total: {
+        type: Number,
+        default: 0
+    }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +47,8 @@
     .c-TipReport {
         padding: 1.5rem;
     }
-    .c-TipReport-Content{
+
+    .c-TipReport-Content {
         height: 100%;
         justify-content: space-between;
     }

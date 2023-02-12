@@ -1,7 +1,7 @@
 <template>
     <div class="c-TipConfig-Input">
         <label v-if="label">{{ label }}</label>
-        <input type="text" :placeholder="placeholder">
+        <input type="text" :placeholder="placeholder" @input="(e) => $emit('input', e.target.value)">
         <i>
             <slot name="icon"></slot>
         </i>
@@ -19,6 +19,7 @@ defineProps({
     }
 })
 
+defineEmits(['input'])
 </script>
 
 <style lang="scss" scoped>
