@@ -9,7 +9,7 @@
             <div class="e-TipConfig-TipPercentages">
                 <button>5%</button>
                 <button>10%</button>
-                <button>1%</button>
+                <button>15%</button>
                 <button>25%</button>
                 <button>50%</button>
                 <button>Custom</button>
@@ -27,6 +27,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 .c-TipConfig {
     padding: 1rem;
     display: flex;
@@ -46,8 +47,23 @@
 }
 .c-TipConfig button {
     background-color: var(--primary-dark);
-    color: #fff;
+    color: var(--vt-c-light-gray-cyan-2);
     border: 1px solid var(--primary-dark);
-    border-radius: 5%;
+    border-radius: 5px;
+    height: 2.8rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    font-weight: bold;
+}
+.c-TipConfig input {
+    border: 1px solid var(--input-background);
+    height: 2.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    color: var(--primary-dark);
+    background-color: var(--input-background);
+    border-radius: 5px;
 }
 </style>

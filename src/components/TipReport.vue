@@ -18,6 +18,6 @@
 
 <style lang="scss" scoped>
 .c-TipReport {
-    padding: 1rem;
+    padding: 1em;
 }
 </style>

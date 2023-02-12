@@ -15,7 +15,8 @@ import TipReport from './components/TipReport.vue';
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem;
   width: 50rem;
-  }
+  background-color: var(--color-background-soft);
+}
 </style>
