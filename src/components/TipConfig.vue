@@ -29,7 +29,7 @@
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 .c-TipConfig {
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -39,6 +39,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .e-TipConfig-TipPercentages {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .e-TipConfig-Input {

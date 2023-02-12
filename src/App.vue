@@ -18,5 +18,12 @@ main {
   gap: 1rem;
   width: 50rem;
   background-color: var(--color-background-soft);
+  border-radius: 20px;
+}
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 }
 </style>

@@ -36,6 +36,7 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-dark-cyan);
+  --color-text-light: var(--vt-c-light-gray-cyan-2);
 
   --section-gap: 160px;
 
