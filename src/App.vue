@@ -14,16 +14,17 @@ import TipReport from './components/TipReport.vue';
 <style scoped>
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  width: 100%;
   gap: 1rem;
-  width: 50rem;
   background-color: var(--color-background-soft);
   border-radius: 20px;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (min-width: 768px) {
   main {
-    grid-template-columns: 1fr;
-    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    width: 50rem;
   }
 }
 </style>

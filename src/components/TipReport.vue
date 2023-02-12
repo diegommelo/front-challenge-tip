@@ -30,7 +30,7 @@
 .c-TipReport {
     display: flex;
     flex-direction: column;
-    padding: 1.8rem;
+    padding: 0 1.8rem 1rem 1.8rem;
     color: var(--color-text-light);
 }
 

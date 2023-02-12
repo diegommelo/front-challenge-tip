@@ -44,7 +44,7 @@
   --primary-dark: var(--vt-c-dark-cyan);
   --primary-light: var(--vt-c-light-gray-cyan);
 
-  --input-background: var(--vt-c-light-gray-cyan-2);
+  --input-background: var(--vt-c-light-gray-cyan);
 }
 
 /* @media (prefers-color-scheme: dark) {

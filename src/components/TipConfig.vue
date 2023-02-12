@@ -1,12 +1,17 @@
 <template>
     <section class="c-TipConfig">
-        <div class="e-TipConfig-Input">
+        <BaseInput label="Bill">
+            <template #icon>
+                <IconDollar />
+            </template>
+        </BaseInput>
+        <!-- <div class="c-TipConfig-Input">
             <label for="totalBill">Bill</label>
             <input type="text" id="totalBill">
-        </div>
+        </div> -->
         <div class="">
             <span>Select Tip %</span>
-            <div class="e-TipConfig-TipPercentages">
+            <div class="c-TipConfig-TipPercentages">
                 <button>5%</button>
                 <button>10%</button>
                 <button>15%</button>
@@ -15,42 +20,46 @@
                 <button>Custom</button>
             </div>
         </div>
-        <div class="e-TipConfig-Input">
+        <BaseInput label="Number of People">
+            <template #icon>
+                <IconPerson />
+            </template>
+        </BaseInput>
+        <!-- <div class="c-TipConfig-Input">
             <label for="numberOfPeople">Number of People</label>
             <input type="text" id="numberOfPeople">
-        </div>
+        </div> -->
     </section>
 </template>
 
 <script setup>
-
+import BaseInput from './base/BaseInput.vue'
+import IconDollar from './icons/IconDollar.vue'
+import IconPerson from './icons/IconPerson.vue'
 </script>
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
 .c-TipConfig {
-    padding: 2rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.e-TipConfig-TipPercentages {
+.c-TipConfig-TipPercentages {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-    .e-TipConfig-TipPercentages {
+    .c-TipConfig-TipPercentages {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-.e-TipConfig-Input {
-    display: flex;
-    flex-direction: column;
-}
 .c-TipConfig button {
     background-color: var(--primary-dark);
     color: var(--vt-c-light-gray-cyan-2);
@@ -60,16 +69,5 @@
     font-family: 'Space Mono', monospace;
     font-size: 24px;
     font-weight: bold;
-}
-.c-TipConfig input {
-    border: 1px solid var(--input-background);
-    height: 2.5rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-    color: var(--primary-dark);
-    background-color: var(--input-background);
-    border-radius: 5px;
 }
 </style>
