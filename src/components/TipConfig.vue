@@ -33,6 +33,7 @@ const tipsStore = useTipsStore()
 const defaultTips = ref(tipsStore.defaultTips)
 
 const setTip = (tip) => {
+    tipsStore.customTip = ""
     tipsStore.setTip(tip)
 }
 

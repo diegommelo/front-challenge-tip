@@ -20,8 +20,32 @@ export const useTipsStore = defineStore('tips', () => {
         people.value = 0;
         tipAmount.value = 0;
         total.value = 0;
-        customTip.value = 0;
+        customTip.value = "";
     }
 
-    return { bill, tip, people, tipAmount, total, defaultTips, setTip, customTip, reset }
+    function calculateTipAmount() {
+        if (bill.value > 0 && people.value > 0) {
+            tipAmount.value = (bill.value * (tip.value / 100)) / people.value;
+        }
+    }
+
+    function calculateTotal() {
+        if (bill.value > 0 && people.value > 0) {
+            total.value = (bill.value / people.value) + tipAmount.value;
+        }
+    }
+
+    return {
+        bill,
+        tip,
+        people,
+        tipAmount,
+        total,
+        defaultTips,
+        customTip,
+        setTip,
+        reset,
+        calculateTipAmount,
+        calculateTotal
+    }
 })
