@@ -1,6 +1,6 @@
 <template>
     <section class="c-TipConfig">
-        <BaseInput label="Bill" v-model="tipsStore.bill">
+        <BaseInput label="Bill" v-model="bill" @click="(e) => e.target.select()">
             <template #icon>
                 <IconDollar />
             </template>
@@ -11,10 +11,11 @@
                 <template v-for="tip in defaultTips" :key="tip">
                     <button @click="setTip(tip)" :class="{ 'selected': selectedTip(tip) }">{{ tip }}%</button>
                 </template>
-                <BaseInput placeholder="Custom" v-model="tipsStore.customTip" @click="setTip(0)"/>
+                <BaseInput placeholder="Custom" v-model="customTip" @click="setTip(0)"
+                    @input="(e) => setCustomTip(e.target.value)" />
             </div>
         </div>
-        <BaseInput label="Number of People" v-model="tipsStore.people">
+        <BaseInput label="Number of People" v-model="people" @click="(e) => e.target.select()">
             <template #icon>
                 <IconPerson />
             </template>
@@ -23,7 +24,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { storeToRefs } from 'pinia';
 import { useTipsStore } from '../stores/tips';
 import BaseInput from './base/BaseInput.vue'
 import IconDollar from './icons/IconDollar.vue'
@@ -32,14 +34,25 @@ import IconPerson from './icons/IconPerson.vue'
 const tipsStore = useTipsStore()
 const defaultTips = ref(tipsStore.defaultTips)
 
+const { bill, tip, customTip, people } = storeToRefs(tipsStore)
+
 const setTip = (tip) => {
     tipsStore.customTip = ""
     tipsStore.setTip(tip)
 }
 
+const setCustomTip = (tip) => {
+    tipsStore.setTip(0)
+    tipsStore.setCustomTip(tip)
+}
 const selectedTip = (tip) => {
     return tip == tipsStore.tip
 }
+
+watch([bill, customTip, people, tip], () => {
+    tipsStore.calculateTip()
+})
+
 
 </script>
 

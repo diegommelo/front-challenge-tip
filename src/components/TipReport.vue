@@ -7,14 +7,14 @@
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>${{ tipAmount.toFixed(2) }}</span>
+                    <span>${{ tipsStore.tipAmount.toFixed(2) }}</span>
                 </div>
                 <div class="c-TipReport-Detail">
                     <span>Total</span>
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>${{ total.toFixed(2) }}</span>
+                    <span>${{ tipsStore.total.toFixed(2) }}</span>
                 </div>
             </section>
             <button class="c-TipReport-Reset" @click="reset">RESET</button>
@@ -31,16 +31,6 @@ const reset = () => {
     tipsStore.reset()
 }
 
-defineProps({
-    tipAmount: {
-        type: Number,
-        default: 0
-    },
-    total: {
-        type: Number,
-        default: 0
-    }
-})
 </script>
 
 <style lang="scss" scoped>
