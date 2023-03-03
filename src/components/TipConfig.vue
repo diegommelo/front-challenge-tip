@@ -1,8 +1,8 @@
 <template>
     <section class="c-TipConfig">
-        <BaseInput label="Bill" v-model="bill" @click="(e) => e.target.select()">
+        <BaseInput label="Bill" v-model="bill" @click="(e) => e.target.select()" class="c-TipConfig-Bill" >
             <template #icon>
-                <IconDollar />
+                <IconDollar class="c-TipConfig-IconDollar"/>
             </template>
         </BaseInput>
         <div>
@@ -12,10 +12,10 @@
                     <button @click="setTip(tip)" :class="{ 'selected': selectedTip(tip) }">{{ tip }}%</button>
                 </template>
                 <BaseInput placeholder="Custom" v-model="customTip" @click="setTip(0)"
-                    @input="(e) => setCustomTip(e.target.value)" />
+                    @input="(e) => setCustomTip(e.target.value)" class="c-TipConfig-CustomTip"/>
             </div>
         </div>
-        <BaseInput label="Number of People" v-model="people" @click="(e) => e.target.select()">
+        <BaseInput label="Number of People" v-model="people" @click="(e) => e.target.select()" class="c-TipConfig-People">
             <template #icon>
                 <IconPerson />
             </template>

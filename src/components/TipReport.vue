@@ -7,14 +7,14 @@
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>${{ tipsStore.tipAmount.toFixed(2) }}</span>
+                    <span class="c-TipReport-Amount">${{ tipsStore.tipAmount.toFixed(2) }}</span>
                 </div>
                 <div class="c-TipReport-Detail">
                     <span>Total</span>
                     <span class="small-text">/ person</span>
                 </div>
                 <div class="c-TipReport-Value">
-                    <span>${{ tipsStore.total.toFixed(2) }}</span>
+                    <span class="c-TipReport-Total">${{ tipsStore.total.toFixed(2) }}</span>
                 </div>
             </section>
             <button class="c-TipReport-Reset" @click="reset">RESET</button>
